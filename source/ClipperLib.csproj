@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
+    <LangVersion>Latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>VexTile.ClipperLib</RootNamespace>
+    <AssemblyName>VexTile.Clipper</AssemblyName>
+    <PackageId>VexTile.Clipper</PackageId>
+    <Version>6.4.0</Version>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Copyright>Copyright © Angus Johnson 2015-$([System.DateTime]::Now.ToString(yyyy))</Copyright>
+    <Description>Polygon Clipping and Offsetting Library. This is a translation of the Delphi Clipper library</Description>
+    <Authors>Angus Johnson</Authors>
+    <Company>Angus Johnson</Company>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageTags>Polygon Clipping, Offsetting Library,Computer graphics, geometric modeling</PackageTags>
+    <PackageLicense>https://www.boost.org/LICENSE_1_0.txt</PackageLicense>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+    <!--Disable Run Api Compat Task causes Build failure on github actions with visual studio 2022 17.5 and .net Compilers Toolset 4.6-->
+    <RunApiCompat>false</RunApiCompat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://sourceforge.net/projects/polyclipping/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>TRACE;use_lines</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>TRACE;use_lines</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.0.0"/>
+  </ItemGroup>
+</Project>
